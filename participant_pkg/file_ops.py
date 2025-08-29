@@ -2,7 +2,7 @@ from pathlib import Path
 import csv
 
 workspace = Path("workspace")
-workspace.mkdir(exist_ok=True)
+# workspace.mkdir(exist_ok=True)
 path = workspace / "contacts.csv"
 
     

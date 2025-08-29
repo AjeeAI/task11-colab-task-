@@ -1,7 +1,8 @@
 from pathlib import Path
-import file_ops
+from participant_pkg import file_ops
+# import file_ops
 workspace = Path("workspace")
-workspace.mkdir(exist_ok=True)
+# workspace.mkdir(exist_ok=True)
 path = workspace / "contacts.csv"
 participant_dict = {}
 
@@ -10,6 +11,8 @@ while True:
         try:
             name = input("Enter your name: ")
             if name == "":
+                continue
+            elif name.isdigit():
                 continue
             else:
                 print(f"Name is: {name}")
@@ -25,12 +28,15 @@ while True:
             if len(str(age)) == 0:
                 print("This field (age) cannot be left blank")
                 continue
+            
             else:
                 print(f"Age: {age}")
                 participant_dict["Age"] = age
                 break
+        except ValueError as e:
+            print("Age should be a whole number")
         except Exception as e:
-            print(f"The error was {e}")
+            print(f"{e}")
             
     while True:
         try:
@@ -52,6 +58,8 @@ while True:
             track = input("Enter your track: ")
             if track == "":
                 print("This field (track) cannot be left blank")
+                continue
+            elif track.isdigit():
                 continue
             else:
                 print(f"Track: {track}")
