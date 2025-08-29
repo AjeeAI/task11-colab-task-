@@ -71,12 +71,20 @@ while True:
                 
     exit = input("Input \"done\" if you are done with your entries").title()
                 
-    file_ops.save_participant(path, participant_dict)
+    try:
+        file_ops.save_participant(path, participant_dict)
+    except Exception as e:
+        print(f"The error that occurred is: {e}")
+        
     if exit == "Done":
         break
 
 
 
     # file_ops.save_participant(path, participant_dict)
+try:
+    file_ops.load_participants(path)
+except Exception as e:
+    print(f"The error that occurred is: {e}")
 
-file_ops.load_participants(path)
+    
