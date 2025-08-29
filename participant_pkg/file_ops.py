@@ -17,7 +17,9 @@ def save_participant(path, participant_dict):
         writer.writerow(participant_dict)
 
 def load_participants(path):
-    with open(path, "r", encoding="utf-8") as f:
-        content = f.Reader()
-        print(content)
+    with open(path, "r", encoding="utf-8", newline="") as f:
+        content = csv.reader(f)
+        for row in content:
+            print(row)
+       
     

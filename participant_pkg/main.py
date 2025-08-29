@@ -71,4 +71,4 @@ while True:
 
     # file_ops.save_participant(path, participant_dict)
 
-    # file_ops.load_participants(path)
+file_ops.load_participants(path)
